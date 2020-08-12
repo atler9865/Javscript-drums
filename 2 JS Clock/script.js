@@ -13,8 +13,19 @@ function showTime(){
     const minutesDegreese = minutes / 60 * 360;
 
     const hour = time.getHours();
-    const hourDegreese = hour / 12 * 360;
+    let hourDegreese = hour / 12 * 360;
 
+    if(minutes >= 15){
+        hourDegreese += 15;
+    }
+    else if(minutes >= 30){
+        hourDegreese +=30;
+    }
+    else if(minutes >= 45){
+        hourDegreese += 45
+    }
+
+    console.log(`${hour}:${minutes}:${second}`);
     
     secHand.style.transform = `rotate(${secondDegreese}deg)`;
     minHand.style.transform = `rotate(${minutesDegreese}deg)`;
